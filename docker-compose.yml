@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: schedule_ai_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: thesis_user
+      POSTGRES_PASSWORD: thesis_password
+      POSTGRES_DB: schedule_ai
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
