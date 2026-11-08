@@ -1,33 +1,32 @@
 # Web-Full-Stack
 
-You know what to do.
+### You know what to do. 
+
+if you use terminal:
 
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
-## Step by Step
+## How to run
 
-CMD 1
+**1. Database**
+```bash
+docker compose up -d
+```
 
-    cd C:\Users\**\**\**\*\Web-Full-Stack
+**2. Backend**
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
 
-    docker compose up -d
+**3. Frontend**
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-CMD 2
-
-      cd C:\Users\**\**\**\*\Web-Full-Stack\backend
-
-    python -m venv venv
-
-    .\venv\Scripts\Activate.ps1
-
-    pip install -r requirements.txt
-
-    uvicorn app.main:app --reload --port 8000
-
-CMD 3
-
-    cd C:\Users\**\**\**\*\Web-Full-Stack\frontend
-
-    npm install
-
-    npm run dev
+Open **`http://localhost:5173`** *(works offline even if Ollama isn't running)*.

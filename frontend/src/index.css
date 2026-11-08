@@ -122,3 +122,9 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* Force FullCalendar toolbar title to be dark and visible */
+.fc .fc-toolbar-title {
+  color: #0f172a !important; /* Dark navy color */
+  font-weight: 600;
+}
