@@ -31,12 +31,12 @@ async def generate_subtopics_with_ai(
     user_prompt = f"Subject/Task: {task_title}\nDetails: {description or 'General exam preparation'}\nTotal study time: {total_minutes} minutes"
     schema = LLMStudyBreakdown.model_json_schema()
 
-    use_cloud = bool(api_key) or settings.LLM_PROVIDER != "ollama"
-    active_key = api_key or settings.CLOUD_API_KEY
-    active_base = validate_base_url(base_url or settings.CLOUD_BASE_URL)
-    active_model = model or settings.CLOUD_MODEL
-
     try:
+        use_cloud = bool(api_key) or settings.LLM_PROVIDER != "ollama"
+        active_key = api_key or settings.CLOUD_API_KEY
+        active_base = validate_base_url(base_url or settings.CLOUD_BASE_URL)
+        active_model = model or settings.CLOUD_MODEL
+
         if not use_cloud:
             async with httpx.AsyncClient(timeout=30.0, trust_env=False) as client:
                 res = await client.post(
